@@ -3,8 +3,8 @@ package com.gestionpolizas.controller;
 import com.gestionpolizas.dto.RiesgoResponseDTO;
 import com.gestionpolizas.service.RiesgoService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +18,7 @@ public class RiesgoController {
         this.riesgoService = riesgoService;
     }
 
-    @PatchMapping("/{id}/cancelar")
+    @PostMapping("/{id}/cancelar")
     public ResponseEntity<RiesgoResponseDTO> cancelar(@PathVariable Long id) {
         return ResponseEntity.ok(riesgoService.cancelarRiesgo(id));
     }

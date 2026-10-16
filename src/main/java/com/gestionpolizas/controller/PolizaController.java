@@ -35,7 +35,7 @@ public class PolizaController {
         return ResponseEntity.ok(polizaService.listarPolizas(tipo, estado));
     }
 
-    @PatchMapping("/{id}/renovar")
+    @PostMapping("/{id}/renovar")
     public ResponseEntity<PolizaResponseDTO> renovar(
             @PathVariable Long id,
             @RequestBody(required = false) RenovarPolizaRequestDTO request) {
@@ -43,7 +43,7 @@ public class PolizaController {
         return ResponseEntity.ok(polizaService.renovarPoliza(id, porcentajeIpc));
     }
 
-    @PatchMapping("/{id}/cancelar")
+    @PostMapping("/{id}/cancelar")
     public ResponseEntity<PolizaResponseDTO> cancelar(@PathVariable Long id) {
         return ResponseEntity.ok(polizaService.cancelarPoliza(id));
     }
